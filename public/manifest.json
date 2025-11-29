@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "My React Vite Extension",
+  "version": "1.0",
+  "description": "A browser extension built using React + Vite",
+
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+
+  "permissions": ["storage", "activeTab", "scripting", "tabs"],
+  "host_permissions": [
+    "https://api.openai.com/*",
+    "https://api.pipeshift.com/*"
+  ]
+}
